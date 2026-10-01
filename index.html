@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Lutz Louis | Personal Website</title>
+    <title>Louis LUTZ | Personal Website</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap"
+          rel="stylesheet">
+
 
     <style>
-        /* =========================
-           GENERAL
-        ========================= */
+
+        /* =========================================
+           BASIC SETTINGS
+        ========================================= */
 
         * {
             margin: 0;
@@ -22,10 +34,9 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f7f7f5;
-            color: #222;
-            line-height: 1.6;
+            font-family: "DM Sans", sans-serif;
+            background: #111;
+            color: white;
         }
 
         a {
@@ -33,626 +44,1137 @@
             text-decoration: none;
         }
 
-        /* =========================
+
+        /* =========================================
+           FIXED BACKGROUND
+        ========================================= */
+
+        .background {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100vh;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.30),
+                    rgba(0, 0, 0, 0.65)
+                ),
+                url("back1.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            z-index: -2;
+        }
+
+
+        /* Dark overlay */
+
+        .background::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        /* =========================================
            NAVIGATION
-        ========================= */
+        ========================================= */
 
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(247, 247, 245, 0.92);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #ddd;
-            z-index: 1000;
-        }
 
-        .nav-container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 18px 30px;
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 100;
+
+            padding: 25px 5%;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
+            mix-blend-mode: normal;
         }
+
 
         .logo {
-            font-weight: bold;
+
             font-size: 20px;
+
+            font-weight: 600;
+
+            letter-spacing: 2px;
         }
+
 
         .nav-links {
+
             display: flex;
-            gap: 25px;
+
+            gap: 30px;
+
             list-style: none;
+
+            font-size: 13px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
         }
 
+
+        .nav-links a {
+
+            transition: opacity 0.3s ease;
+        }
+
+
         .nav-links a:hover {
+
             opacity: 0.5;
         }
 
-        /* =========================
-           SECTIONS
-        ========================= */
 
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 110px 30px 70px;
-        }
-
-        h2 {
-            font-size: 34px;
-            margin-bottom: 35px;
-        }
-
-        /* =========================
-           HERO / ABOUT
-        ========================= */
-
-        #about {
-            min-height: 100vh;
-
-            display: flex;
-            align-items: center;
-        }
+        /* =========================================
+           HERO
+        ========================================= */
 
         .hero {
-            width: 100%;
 
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .intro-label {
-            color: #777;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        .hero h1 {
-            font-size: clamp(45px, 7vw, 80px);
-            line-height: 1;
-            margin-bottom: 20px;
-        }
-
-        .chinese-name {
-            font-size: 30px;
-            color: #777;
-            margin-bottom: 25px;
-        }
-
-        .description {
-            max-width: 650px;
-            font-size: 18px;
-            color: #555;
-        }
-
-        .student-id {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #777;
-        }
-
-        /* =========================
-           PROFILE VISUAL
-        ========================= */
-
-        .profile-card {
-            height: 330px;
-            border-radius: 25px;
-            background: #ddd;
+            height: 100vh;
 
             display: flex;
+
             align-items: center;
-            justify-content: center;
 
-            overflow: hidden;
-        }
+            padding: 0 10%;
 
-        .profile-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* =========================
-           EDUCATION / EXPERIENCE
-        ========================= */
-
-        .timeline {
-            border-left: 2px solid #ccc;
-            padding-left: 30px;
-        }
-
-        .timeline-item {
-            margin-bottom: 40px;
             position: relative;
         }
 
-        .timeline-item::before {
-            content: "";
-            width: 12px;
-            height: 12px;
 
-            background: #222;
-            border-radius: 50%;
+        .hero-content {
+
+            max-width: 900px;
+        }
+
+
+        .small-title {
+
+            font-size: 14px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+
+            opacity: 0.8;
+        }
+
+
+        .hero h1 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(65px, 11vw, 150px);
+
+            font-weight: 500;
+
+            line-height: 0.9;
+
+            letter-spacing: -5px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .hero h1 span {
+
+            display: block;
+
+            font-style: italic;
+
+            margin-left: 80px;
+        }
+
+
+        .hero-description {
+
+            font-size: 15px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            opacity: 0.85;
+        }
+
+
+        /* Scroll indicator */
+
+        .scroll-indicator {
 
             position: absolute;
-            left: -37px;
-            top: 7px;
+
+            bottom: 35px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            opacity: 0.7;
         }
 
-        .timeline-date {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 5px;
+
+        .scroll-arrow {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 10px;
+
+            font-size: 20px;
+
+            animation: bounce 2s infinite;
         }
 
-        .timeline h3 {
-            font-size: 22px;
-            margin-bottom: 5px;
+
+        @keyframes bounce {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(8px);
+            }
+
         }
 
-        /* =========================
-           PROJECT
-        ========================= */
 
-        .project {
-            background: white;
+        /* =========================================
+           CONTENT AREA
+        ========================================= */
+
+        .content {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding-bottom: 80px;
+        }
+
+
+        /* =========================================
+           CONTENT BLOCKS
+        ========================================= */
+
+        .section {
+
+            max-width: 1100px;
+
+            margin: 0 auto 30px;
+
+            padding: 70px;
+
+            background: rgba(15, 20, 25, 0.88);
+
+            backdrop-filter: blur(10px);
+
+            -webkit-backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255,255,255,0.15);
+
             border-radius: 20px;
-            padding: 35px;
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.35);
+
+        }
+
+
+        .section-number {
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            opacity: 0.5;
+
+            margin-bottom: 10px;
+        }
+
+
+        .section h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 45px;
+
+            font-weight: 500;
+
+            margin-bottom: 30px;
+        }
+
+
+        .section p {
+
+            color: rgba(255,255,255,0.75);
+
+            line-height: 1.8;
+
+            max-width: 700px;
+        }
+
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        .about-grid {
 
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 40px;
 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            grid-template-columns: 1.5fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
         }
 
-        .project-image {
-            min-height: 280px;
-            background: #ddd;
-            border-radius: 15px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .about-photo {
+
+            height: 350px;
+
+            border-radius: 15px;
 
             overflow: hidden;
         }
 
-        .project-image img {
+
+        .about-photo img {
+
             width: 100%;
+
             height: 100%;
+
             object-fit: cover;
+
+            transition: transform 0.6s ease;
         }
 
-        .project h3 {
-            font-size: 28px;
-            margin-bottom: 15px;
+
+        .about-photo:hover img {
+
+            transform: scale(1.05);
         }
 
-        .project p {
-            color: #555;
+
+        .name-line {
+
+            font-size: 18px;
+
             margin-bottom: 20px;
+
+            color: white;
         }
+
+
+        .student-id {
+
+            margin-top: 20px;
+
+            font-size: 13px;
+
+            opacity: 0.5;
+        }
+
+
+        /* =========================================
+           TAGS
+        ========================================= */
 
         .tags {
+
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 10px;
+
+            margin-top: 30px;
         }
+
 
         .tag {
-            background: #eee;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 13px;
+
+            padding: 8px 15px;
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            transition: all 0.3s ease;
         }
 
-        /* =========================
-           CONTACT
-        ========================= */
 
-        .contact-box {
-            background: #222;
-            color: white;
-            border-radius: 20px;
-            padding: 45px;
+        .tag:hover {
+
+            background: white;
+
+            color: black;
         }
 
-        .contact-box h3 {
-            font-size: 30px;
+
+        /* =========================================
+           EDUCATION
+        ========================================= */
+
+        .timeline {
+
+            border-left: 1px solid rgba(255,255,255,0.3);
+
+            padding-left: 30px;
+        }
+
+
+        .timeline-item {
+
+            position: relative;
+
+            margin-bottom: 40px;
+        }
+
+
+        .timeline-item:last-child {
+
+            margin-bottom: 0;
+        }
+
+
+        .timeline-item::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 9px;
+
+            height: 9px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            left: -35px;
+
+            top: 8px;
+        }
+
+
+        .date {
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            opacity: 0.5;
+
+            margin-bottom: 5px;
+        }
+
+
+        .timeline h3 {
+
+            font-size: 20px;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================================
+           PROJECT
+        ========================================= */
+
+        .project {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1.5fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+
+        .project-image {
+
+            height: 300px;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+        }
+
+
+        .project-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.6s ease;
+        }
+
+
+        .project-image:hover img {
+
+            transform: scale(1.05);
+        }
+
+
+        .project h3 {
+
+            font-size: 27px;
+
             margin-bottom: 20px;
         }
 
-        .contact-links {
+
+        .contribution {
+
+            margin-top: 20px;
+        }
+
+
+        .contribution strong {
+
+            color: white;
+        }
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact {
+
+            text-align: center;
+        }
+
+
+        .contact p {
+
+            margin: 0 auto;
+        }
+
+
+        .links {
+
             display: flex;
+
+            justify-content: center;
+
             flex-wrap: wrap;
+
             gap: 15px;
-            margin-top: 25px;
+
+            margin-top: 35px;
         }
 
-        .contact-link {
-            border: 1px solid #666;
-            padding: 10px 18px;
-            border-radius: 20px;
+
+        .link {
+
+            padding: 12px 22px;
+
+            border: 1px solid rgba(255,255,255,0.3);
+
+            border-radius: 30px;
+
+            font-size: 13px;
+
+            transition: all 0.3s ease;
         }
 
-        .contact-link:hover {
+
+        .link:hover {
+
             background: white;
-            color: #222;
+
+            color: black;
+
+            transform: translateY(-3px);
         }
 
-        /* =========================
+
+        /* =========================================
            FOOTER
-        ========================= */
+        ========================================= */
 
         footer {
+
             text-align: center;
+
             padding: 30px;
-            color: #888;
-            font-size: 14px;
+
+            font-size: 12px;
+
+            opacity: 0.5;
         }
 
-        /* =========================
+
+        /* =========================================
            MOBILE
-        ========================= */
+        ========================================= */
 
         @media (max-width: 750px) {
 
-            .nav-container {
-                padding: 15px 20px;
+            nav {
+
+                padding: 20px;
             }
+
 
             .nav-links {
+
                 gap: 12px;
-                font-size: 13px;
+
+                font-size: 10px;
             }
 
-            section {
-                padding: 90px 20px 60px;
-            }
 
             .hero {
+
+                padding: 0 25px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 65px;
+
+                letter-spacing: -3px;
+            }
+
+
+            .hero h1 span {
+
+                margin-left: 30px;
+            }
+
+
+            .section {
+
+                margin-left: 15px;
+
+                margin-right: 15px;
+
+                padding: 35px 25px;
+
+                border-radius: 15px;
+            }
+
+
+            .section h2 {
+
+                font-size: 36px;
+            }
+
+
+            .about-grid {
+
                 grid-template-columns: 1fr;
+
                 gap: 30px;
             }
 
-            .profile-card {
+
+            .about-photo {
+
+                height: 300px;
+            }
+
+
+            .project {
+
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+            }
+
+
+            .project-image {
+
                 height: 250px;
             }
 
-            .project {
-                grid-template-columns: 1fr;
-                padding: 25px;
-            }
-
-            .project-image {
-                min-height: 220px;
-            }
-
-            h2 {
-                font-size: 28px;
-            }
         }
+
     </style>
+
 </head>
 
 
 <body>
 
-    <!-- =========================
+
+    <!-- =========================================
+         FIXED BACKGROUND
+    ========================================= -->
+
+    <div class="background"></div>
+
+
+    <!-- =========================================
          NAVIGATION
-    ========================= -->
+    ========================================= -->
 
     <nav>
-        <div class="nav-container">
 
-            <div class="logo">
-                Lutz Louis
-            </div>
-
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
+        <div class="logo">
+            [Louis LUTZ]
         </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
     </nav>
 
 
-    <!-- =========================
-         ABOUT
-    ========================= -->
+    <!-- =========================================
+         HERO
+    ========================================= -->
 
-    <section id="about">
+    <section class="hero">
 
-        <div class="hero">
+        <div class="hero-content">
 
-            <div>
+            <div class="small-title">
+                Engineer in Progress · Robotics · Care Giver
+            </div>
 
-                <p class="intro-label">
-                    Engineering Student · Researcher · Robotics
-                </p>
+            <h1>
+                Louis
+                <span>LUTZ</span>
+            </h1>
 
-                <h1>
-                    Lutz Louis
-                </h1>
+            <div class="hero-description">
 
-                <p class="chinese-name">
-                    Chinese Name to be determined 
-                </p>
-
-                <p class="description">
-                    I am a master degree student studying AI and robotics
-                    at ECAM LaSalle and Chang Gung University. My interests include Entertainment,
-                    Dance, and Videogames.
-                </p>
-
-                <p class="student-id">
-                    Student ID: M1561035
-                </p>
+                [YOUR SHORT PERSONAL TAGLINE]
 
             </div>
 
+        </div>
 
-            <!-- Replace this image with your own -->
-            <div class="profile-card">
 
-                <img
-                    src="https://images.unsplash.com/photo-1518770660439-4636190af475"
-                    alt="Technology and engineering"
-                >
+        <div class="scroll-indicator">
 
-            </div>
+            Scroll to explore
+
+            <span class="scroll-arrow">
+                ↓
+            </span>
 
         </div>
 
     </section>
 
 
-    <!-- =========================
-         EDUCATION / EXPERIENCE
-    ========================= -->
 
-    <section id="education">
+    <!-- =========================================
+         SCROLLING CONTENT
+    ========================================= -->
 
-        <h2>
-            Education & Experience
-        </h2>
+    <main class="content">
 
-        <div class="timeline">
 
-            <div class="timeline-item">
+        <!-- ================= ABOUT ================= -->
 
-                <div class="timeline-date">
-                    [2021 – 2026]
-                </div>
+        <section class="section" id="about">
 
-                <h3>
-                    ECAM LaSalle 
-                </h3>
-
-                <p>
-                    Engineering Degree in Robotics
-                </p>
-
-                <p>
-                    Short description of what you study or focus on.
-                </p>
-
+            <div class="section-number">
+                01 — ABOUT
             </div>
 
-            <div class="timeline-item">
-
-                <div class="timeline-date">
-                    [2026 – Present]
-                </div>
-
-                <h3>
-                    Chang Gung University
-                </h3>
-
-                <p>
-                    Master Degree in AI
-                </p>
-
-                <p>
-                    Short description of what you study or focus on.
-                </p>
-
-            </div>
-
-            <div class="timeline-item">
-
-                <div class="timeline-date">
-                    [2025 – 2026]
-                </div>
-
-                <h3>
-                    Bartender
-                </h3>
-
-                <p>
-                    Ninkasi Part Dieu, Lyon
-                </p>
-
-                <p>
-                    [Gap year experience working as a bartender in Lyon, France. Good hands-on experience on teamwork, and time management skills.]
-                </p>
-
-            </div>
+            <h2>
+                About Me
+            </h2>
 
 
-            <div class="timeline-item">
-
-                <div class="timeline-date">
-                    [2024]
-                </div>
-
-                <h3>
-                    Data Science Internship
-                </h3>
-
-                <p>
-                    FranceAir
-                </p>
-
-                <p>
-                    Helped with data verification for the company's database and website. Learned about data cleaning and verification methods.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
+            <div class="about-grid">
 
 
-    <!-- =========================
-         PROJECTS / RESEARCH
-    ========================= -->
+                <div>
 
-    <section id="projects">
+                    <div class="name-line">
 
-        <h2>
-            Projects & Research
-        </h2>
+                        Louis LUTZ
+                        ·
+                        Engineer in Progress
 
-        <div class="project">
-
-            <div class="project-image">
-
-                <!-- Replace with a picture of your project -->
-                <img
-                    src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e"
-                    alt="Robotics project"
-                >
-
-            </div>
+                    </div>
 
 
-            <div>
+                    <p>
 
-                <h3>
-                    [WIP] Thesis on AI usage to diagnosis ADHD
-                </h3>
+                        I am a Master degree engineering student at
+                        ECAM LaSalle, specialising in AI at Chang Gung University.
 
-                <p>
-                    How one could use AI to diagnose ADHD in children and adults. And how to improve the accuracy of the diagnosis.
-                </p>
+                        I am particularly interested in
+                        the entertainement industry, dance and
+                        videogames.
 
-                <p>
-                    <strong>My contribution:</strong>
-                    The paper is still early in its development, but I am currently working on the literature review and the methodology.
-                </p>
+                        I enjoy working on projects that combine
+                        engineering, technology and creative problem
+                        solving.
 
-                <div class="tags">
+                    </p>
 
-                    <span class="tag">
-                        [Technology]
-                    </span>
 
-                    <span class="tag">
-                        [Technology]
-                    </span>
+                    <div class="student-id">
 
-                    <span class="tag">
-                        [Research Area]
-                    </span>
+                        Student ID:
+                        M1561035
 
-                    <span class="tag">
-                        [Skill]
-                    </span>
+                    </div>
+
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            Curious
+                        </span>
+
+                        <span class="tag">
+                            Creative
+                        </span>
+
+                        <span class="tag">
+                            Problem Solver
+                        </span>
+
+                        <span class="tag">
+                            Team Player
+                        </span>
+
+                    </div>
 
                 </div>
 
+
+                <div class="about-photo">
+
+                    <img
+                        src="profile.jpg"
+                        alt="Photo of Louis LUTZ"
+                    >
+
+                </div>
+
+
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================
-         CONTACT
-    ========================= -->
 
-    <section id="contact">
+        <!-- ============ EDUCATION ============ -->
 
-        <h2>
-            Contact & Links
-        </h2>
+        <section class="section" id="education">
 
-        <div class="contact-box">
+            <div class="section-number">
+                02 — EDUCATION & EXPERIENCE
+            </div>
 
-            <h3>
-                Let's connect.
-            </h3>
+            <h2>
+                My Journey
+            </h2>
+
+
+            <div class="timeline">
+
+
+                <div class="timeline-item">
+
+                    <div class="date">
+                        [2026 – PRESENT]
+                    </div>
+
+                    <h3>
+                        Chang Gung University, Taiwan
+                    </h3>
+
+                    <p>
+                        Master Degree in AI
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="date">
+                        [2021 – Present]
+                    </div>
+
+                    <h3>
+                        ECAM LaSalle, France
+                    </h3>
+
+                    <p>
+                        Engineering Degree in Robotics
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="date">
+                        [2025 – 2026]
+                    </div>
+
+                    <h3>
+                        Bartender
+                    </h3>
+
+                    <p>
+                        Ninkasi Part Dieu, Lyon
+                    </p>
+
+                    <p>
+                        [Gap year experience working as a bartender in Lyon, France. Good hands-on experience on teamwork, and time management skills.]
+                    </p>
+
+                </div>
+
+                <div class="timeline-item">
+
+                    <div class="timeline-date">
+                        [2024]
+                    </div>
+
+                    <h3>
+                        Data Science Internship
+                    </h3>
+
+                    <p>
+                        FranceAir
+                    </p>
+
+                    <p>
+                        Helped with data verification for the company's database and website. Learned about data cleaning and verification methods.
+                    </p>
+
+                </div>
+
+            </div>
+            
+        </section>
+
+
+
+        <!-- ============ PROJECTS ============ -->
+
+        <section class="section" id="projects">
+
+            <div class="section-number">
+                03 — PROJECTS & RESEARCH
+            </div>
+
+            <h2>
+                What I Work On
+            </h2>
+
+
+            <div class="project">
+
+
+                <div class="project-image">
+
+                    <img
+                        src="project.jpg"
+                        alt="Research project"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        [WIP] Thesis on AI usage to diagnosis ADHD
+                    </h3>
+
+
+                    <p>
+                        How one could use AI to diagnose ADHD in children and adults. And how to improve the accuracy of the diagnosis.
+                    </p>
+
+
+                    <p class="contribution">
+
+                        <strong>
+                            My contribution:
+                        </strong>
+                        The paper is still early in its development, but I am currently working on the literature review and the methodology.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            [Technology]
+                        </span>
+
+                        <span class="tag">
+                            [Technology]
+                        </span>
+
+                        <span class="tag">
+                            [Research]
+                        </span>
+
+                        <span class="tag">
+                            [Skill]
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============ CONTACT ============ -->
+
+        <section class="section contact" id="contact">
+
+            <div class="section-number">
+                04 — CONTACT
+            </div>
+
+            <h2>
+                Let's Connect
+            </h2>
+
 
             <p>
-                If you would like to discuss research, projects,
-                engineering, or potential collaborations, feel free
-                to contact me.
+
+                Interested in my work, research or projects?
+                Feel free to get in touch.
+
             </p>
 
-            <div class="contact-links">
+
+            <div class="links">
+
 
                 <a
-                    class="contact-link"
-                    href="mailto:[M1561035@cgu.edu.tw]"
+                    class="link"
+                    href="mailto:M1561035@cgu.edu.tw"
                 >
                     Email
                 </a>
 
+
                 <a
-                    class="contact-link"
+                    class="link"
                     href="[YOUR LINKEDIN]"
                     target="_blank"
                 >
                     LinkedIn
                 </a>
 
+
                 <a
-                    class="contact-link"
+                    class="link"
                     href="[YOUR GITHUB]"
                     target="_blank"
                 >
                     GitHub
                 </a>
 
+
                 <a
-                    class="contact-link"
-                    href="[OTHER LINK]"
+                    class="link"
+                    href="[YOUR CV]"
                     target="_blank"
                 >
-                    Portfolio / CV
+                    CV
                 </a>
+
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+        <footer>
 
-    <footer>
+            © 2026 Lutz Louis
 
-        © 2026 [Lutz Louis]
+        </footer>
 
-    </footer>
+
+    </main>
 
 
 </body>
+
 </html>
