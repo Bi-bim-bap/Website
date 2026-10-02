@@ -533,8 +533,6 @@
             max-width: none;
         
             padding: 0;
-
-            overflow: hidden;
         
         }
         
@@ -560,8 +558,6 @@
             padding: 80px 8% 0;
         
             z-index: 5;
-
-            pointer-events: none;
         
         }
         
@@ -1573,80 +1569,41 @@
     <script>
 
         const timelineSection =
-            document.querySelector(".timeline-section");
+          document.querySelector(".timeline-section");
         
         const timeline =
-            document.querySelector(".horizontal-timeline");
-        
-        const timelineWindow =
-            document.querySelector(".timeline-window");
-        
+          document.querySelector(".horizontal-timeline");
         
         function moveTimeline() {
         
-            if (window.innerWidth <= 750) {
+          if (window.innerWidth <= 750) {
+            timeline.style.transform = "none";
+            return;
+          }
         
-                timeline.style.transform = "none";
+          const sectionTop = timelineSection.offsetTop;
+          const sectionHeight = timelineSection.offsetHeight;
+          const viewportHeight = window.innerHeight;
         
-                return;
-    
-        }
-    
-        const sectionTop =
-            timelineSection.offsetTop;
-    
-    
-        const sectionHeight =
-            timelineSection.offsetHeight;
-    
-    
-        const windowHeight =
-            window.innerHeight;
-    
-        const animationStart =
-            sectionTop +
-            windowHeight * 0.5;
-    
-        const distance =
-            sectionHeight -
-            windowHeight;
-    
-    
-        let progress =
-            (window.scrollY - animationStart)
-            /
-            distance;
-    
-        progress =
-            Math.max(0, Math.min(1, progress));
-    
-        const maxMove =
-            timeline.scrollWidth -
-            window.innerWidth +
-            window.innerWidth * 0.10;
-    
-    
-        const movement =
-            progress * maxMove;
-    
-    
-        timeline.style.transform =
-            `translateX(-${movement}px)`;
-    
+          const scrollStart = sectionTop;
+          const scrollEnd =
+            sectionTop + sectionHeight - viewportHeight;
+        
+          let progress =
+            (window.scrollY - scrollStart) /
+            (scrollEnd - scrollStart);
+        
+          progress = Math.max(0, Math.min(1, progress));
+        
+          const maxMove =
+            timeline.scrollWidth - window.innerWidth;
+        
+          timeline.style.transform =
+            `translateX(-${progress * maxMove}px)`;
         }
         
-        
-        window.addEventListener(
-            "scroll",
-            moveTimeline
-        );
-        
-        
-        window.addEventListener(
-            "resize",
-            moveTimeline
-        );
-        
+        window.addEventListener("scroll", moveTimeline);
+        window.addEventListener("resize", moveTimeline);
         
         moveTimeline();
 
