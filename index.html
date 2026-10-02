@@ -520,7 +520,311 @@
 
             margin-bottom: 5px;
         }
+        /* =========================================
+            HORIZONTAL TIMELINE
+        ========================================= */
 
+        .timeline-section {
+
+            height: 250vh;
+
+            position: relative;
+
+            max-width: none;
+
+            padding: 0;
+
+}
+
+
+        .timeline-header {
+        
+            position: sticky;
+        
+            top: 0;
+        
+            height: 100vh;
+        
+            display: flex;
+        
+            flex-direction: column;
+        
+            justify-content: center;
+        
+            padding: 0 8%;
+        
+            overflow: hidden;
+
+}
+
+
+        /* Title */
+        
+        .timeline-header h2 {
+        
+            font-family: "Playfair Display", serif;
+        
+            font-size: clamp(45px, 6vw, 80px);
+        
+            font-weight: 500;
+        
+            margin-bottom: 15px;
+        
+        }
+        
+        
+        .timeline-header p {
+        
+            color: rgba(255,255,255,0.65);
+        
+            max-width: 500px;
+        
+        }
+        
+        
+        /* =========================================
+           TIMELINE WINDOW
+        ========================================= */
+        
+        .timeline-window {
+        
+            position: sticky;
+        
+            top: 0;
+        
+            height: 100vh;
+        
+            margin-top: -100vh;
+        
+            display: flex;
+        
+            align-items: center;
+        
+            overflow: hidden;
+        
+            pointer-events: none;
+        
+        }
+        
+        
+        /* =========================================
+           HORIZONTAL LINE
+        ========================================= */
+        
+        .horizontal-timeline {
+        
+            display: flex;
+        
+            align-items: flex-start;
+        
+            gap: 120px;
+        
+            padding-left: 8vw;
+        
+            padding-right: 30vw;
+        
+            position: relative;
+        
+            will-change: transform;
+        
+        }
+        
+        
+        /* Horizontal line */
+        
+        .horizontal-timeline::before {
+        
+            content: "";
+        
+            position: absolute;
+        
+            top: 48px;
+        
+            left: 8vw;
+        
+            right: 20vw;
+        
+            height: 1px;
+        
+            background:
+                rgba(255,255,255,0.35);
+        
+        }
+        
+        
+        /* =========================================
+           TIMELINE CARD
+        ========================================= */
+        
+        .timeline-card {
+        
+            width: 330px;
+        
+            flex-shrink: 0;
+        
+            position: relative;
+        
+            padding-top: 80px;
+        
+        }
+        
+        
+        /* Dot */
+        
+        .timeline-dot {
+        
+            position: absolute;
+        
+            top: 42px;
+        
+            left: 0;
+        
+            width: 13px;
+        
+            height: 13px;
+        
+            border-radius: 50%;
+        
+            background: white;
+        
+            box-shadow:
+                0 0 0 6px rgba(255,255,255,0.08);
+        
+        }
+        
+        
+        /* Year */
+        
+        .timeline-year {
+        
+            position: absolute;
+        
+            top: 0;
+        
+            left: 0;
+        
+            font-size: 12px;
+        
+            letter-spacing: 2px;
+        
+            color: rgba(255,255,255,0.5);
+        
+        }
+        
+        
+        /* Title */
+        
+        .timeline-card h3 {
+        
+            font-size: 24px;
+        
+            margin-bottom: 5px;
+        
+        }
+        
+        
+        /* Subtitle */
+        
+        .timeline-card h4 {
+        
+            font-size: 14px;
+        
+            font-weight: 400;
+        
+            color: rgba(255,255,255,0.55);
+        
+            margin-bottom: 20px;
+        
+        }
+        
+        
+        /* Description */
+        
+        .timeline-card p {
+        
+            font-size: 14px;
+        
+            line-height: 1.8;
+        
+            color: rgba(255,255,255,0.65);
+
+}
+
+        
+        /* =========================================
+           MOBILE
+        ========================================= */
+        
+        @media (max-width: 750px) {
+        
+            .timeline-section {
+        
+                height: auto;
+        
+                padding: 100px 0;
+        
+            }
+        
+        
+            .timeline-header {
+        
+                position: relative;
+        
+                height: auto;
+        
+                padding: 0 25px 60px;
+        
+            }
+        
+        
+            .timeline-window {
+        
+                position: relative;
+        
+                height: auto;
+        
+                margin-top: 0;
+        
+                overflow-x: auto;
+        
+                overflow-y: hidden;
+        
+                padding-bottom: 30px;
+        
+                pointer-events: auto;
+        
+            }
+        
+        
+            .horizontal-timeline {
+        
+                transform: none !important;
+        
+                gap: 60px;
+        
+                padding-left: 25px;
+        
+                padding-right: 25px;
+        
+            }
+        
+        
+            .horizontal-timeline::before {
+        
+                left: 25px;
+        
+                right: 25px;
+        
+            }
+        
+        
+            .timeline-card {
+        
+                width: 280px;
+        
+            }
+        
+        }
 
         /* =========================================
            PROJECT
@@ -779,7 +1083,7 @@
     <nav>
 
         <div class="logo">
-            [Louis LUTZ]
+            Louis LUTZ
         </div>
 
         <ul class="nav-links">
@@ -944,24 +1248,37 @@
 
         <!-- ============ EDUCATION ============ -->
 
-        <section class="section" id="education">
+<section class="timeline-section" id="education">
 
-            <div class="section-number">
-                02 — EDUCATION & EXPERIENCE
-            </div>
+    <div class="timeline-header">
 
-            <h2>
-                My Journey
-            </h2>
+        <div class="section-number">
+            02 — EDUCATION & EXPERIENCE
+        </div>
+
+        <h2>
+            My Journey
+        </h2>
+
+        <p>
+            A few places, projects and experiences that shaped me.
+        </p>
+
+    </div>
 
 
-            <div class="timeline">
+    <div class="timeline-window">
 
+        <div class="horizontal-timeline">
 
-                <div class="timeline-item">
+            <div class="timeline-card">
 
-                    <div class="date">
-                        [2026 – PRESENT]
+                <div class="timeline-year">
+                    [2026 – PRESENT]
+                </div>
+
+                <div class="timeline-dot"></div>
+
                     </div>
 
                     <h3>
@@ -972,13 +1289,16 @@
                         Master Degree in AI
                     </p>
 
+            </div>
+
+            <div class="timeline-card">
+
+                <div class="timeline-year">
+                    [2021 – Present]
                 </div>
 
+                <div class="timeline-dot"></div>
 
-                <div class="timeline-item">
-
-                    <div class="date">
-                        [2021 – Present]
                     </div>
 
                     <h3>
@@ -989,13 +1309,16 @@
                         Engineering Degree in Robotics
                     </p>
 
+            </div>
+
+            <div class="timeline-card">
+
+                <div class="timeline-year">
+                    [2025 – 2026]
                 </div>
 
-
-                <div class="timeline-item">
-
-                    <div class="date">
-                        [2025 – 2026]
+                <div class="timeline-dot"></div>
+                
                     </div>
 
                     <h3>
@@ -1007,36 +1330,40 @@
                     </p>
 
                     <p>
-                        [Gap year experience working as a bartender in Lyon, France. Good hands-on experience on teamwork, and time management skills.]
+                        Gap year experience working as a bartender in Lyon, France. Good hands-on experience on teamwork, and time management skills.
                     </p>
-
-                </div>
-
-                <div class="timeline-item">
-
-                    <div class="timeline-date">
-                        [2024]
-                    </div>
-
-                    <h3>
-                        Data Science Internship
-                    </h3>
-
-                    <p>
-                        FranceAir
-                    </p>
-
-                    <p>
-                        Helped with data verification for the company's database and website. Learned about data cleaning and verification methods.
-                    </p>
-
-                </div>
+                
 
             </div>
-            
-        </section>
+
+            <div class="timeline-card">
+
+                <div class="timeline-year">
+                     [2024]
+                </div>
+                
+                <div class="timeline-dot"></div>
+                
+                <h3>
+                        Data Science Internship
+                </h3>
+
+                <p>
+                        FranceAir
+                </p>
+
+                <p>
+                    Helped with data verification for the company's database and website. Learned about data cleaning and verification methods.
+                </p>
+
+            </div>
 
 
+        </div>
+
+    </div>
+
+</section>
 
         <!-- ============ PROJECTS ============ -->
 
@@ -1088,19 +1415,19 @@
                     <div class="tags">
 
                         <span class="tag">
-                            [Technology]
+                            ADHD
                         </span>
 
                         <span class="tag">
-                            [Technology]
+                            Data
                         </span>
 
                         <span class="tag">
-                            [Research]
+                            Research
                         </span>
 
                         <span class="tag">
-                            [Skill]
+                            Medical Image Processing
                         </span>
 
                     </div>
