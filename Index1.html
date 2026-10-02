@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>[YOUR NAME] | Personal Website</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =========================================
+           BASIC SETTINGS
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #111;
+            color: white;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           FIXED BACKGROUND
+        ========================================= */
+
+        .background {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100vh;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.30),
+                    rgba(0, 0, 0, 0.65)
+                ),
+                url("back1.jpg");
+
+            background-size: cover;
+
+            background-position: 35%;
+
+            z-index: -2;
+        }
+
+
+        /* Dark overlay */
+
+        .background::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        nav {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 100;
+
+            padding: 25px 5%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            mix-blend-mode: normal;
+        }
+
+
+        .logo {
+
+            font-size: 20px;
+
+            font-weight: 600;
+
+            letter-spacing: 2px;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 30px;
+
+            list-style: none;
+
+            font-size: 13px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        .nav-links a {
+
+            transition: opacity 0.3s ease;
+        }
+
+
+        .nav-links a:hover {
+
+            opacity: 0.5;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 10%;
+
+            position: relative;
+        }
+
+
+        .hero-content {
+
+            max-width: 900px;
+        }
+
+
+        .small-title {
+
+            font-size: 14px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+
+            opacity: 0.8;
+        }
+
+
+        .hero h1 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(65px, 11vw, 150px);
+
+            font-weight: 500;
+
+            line-height: 0.9;
+
+            letter-spacing: -5px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .hero h1 span {
+
+            display: block;
+
+            font-style: italic;
+
+            margin-left: 80px;
+        }
+
+
+        .hero-description {
+
+            font-size: 15px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            opacity: 0.85;
+        }
+
+
+        /* Scroll indicator */
+
+        .scroll-indicator {
+
+            position: absolute;
+
+            bottom: 35px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            opacity: 0.7;
+        }
+
+
+        .scroll-arrow {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 10px;
+
+            font-size: 20px;
+
+            animation: bounce 2s infinite;
+        }
+
+
+        @keyframes bounce {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(8px);
+            }
+
+        }
+
+
+        /* =========================================
+           CONTENT AREA
+        ========================================= */
+
+        .content {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding-bottom: 80px;
+        }
+
+
+        /* =========================================
+           CONTENT BLOCKS
+        ========================================= */
+
+        .section {
+
+            max-width: 1100px;
+
+            margin: 0 auto 30px;
+
+            padding: 70px;
+
+            background: rgba(15, 20, 25, 0.88);
+
+            backdrop-filter: blur(10px);
+
+            -webkit-backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.35);
+
+        }
+
+
+        .section-number {
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            opacity: 0.5;
+
+            margin-bottom: 10px;
+        }
+
+
+        .section h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 45px;
+
+            font-weight: 500;
+
+            margin-bottom: 30px;
+        }
+
+
+        .section p {
+
+            color: rgba(255,255,255,0.75);
+
+            line-height: 1.8;
+
+            max-width: 700px;
+        }
+
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        .about-grid {
+
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+
+        .about-photo {
+
+            height: 350px;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+        }
+
+
+        .about-photo img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.6s ease;
+        }
+
+
+        .about-photo:hover img {
+
+            transform: scale(1.05);
+        }
+
+
+        .name-line {
+
+            font-size: 18px;
+
+            margin-bottom: 20px;
+
+            color: white;
+        }
+
+
+        .student-id {
+
+            margin-top: 20px;
+
+            font-size: 13px;
+
+            opacity: 0.5;
+        }
+
+
+        /* =========================================
+           TAGS
+        ========================================= */
+
+        .tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 30px;
+        }
+
+
+        .tag {
+
+            padding: 8px 15px;
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            transition: all 0.3s ease;
+        }
+
+
+        .tag:hover {
+
+            background: white;
+
+            color: black;
+        }
+
+
+        /* =========================================
+           EDUCATION
+        ========================================= */
+
+        .timeline {
+
+            border-left: 1px solid rgba(255,255,255,0.3);
+
+            padding-left: 30px;
+        }
+
+
+        .timeline-item {
+
+            position: relative;
+
+            margin-bottom: 40px;
+        }
+
+
+        .timeline-item:last-child {
+
+            margin-bottom: 0;
+        }
+
+
+        .timeline-item::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 9px;
+
+            height: 9px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            left: -35px;
+
+            top: 8px;
+        }
+
+
+        .date {
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            opacity: 0.5;
+
+            margin-bottom: 5px;
+        }
+
+
+        .timeline h3 {
+
+            font-size: 20px;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================================
+           PROJECT
+        ========================================= */
+
+        .project {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1.5fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+
+        .project-image {
+
+            height: 300px;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+        }
+
+
+        .project-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.6s ease;
+        }
+
+
+        .project-image:hover img {
+
+            transform: scale(1.05);
+        }
+
+
+        .project h3 {
+
+            font-size: 27px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .contribution {
+
+            margin-top: 20px;
+        }
+
+
+        .contribution strong {
+
+            color: white;
+        }
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact {
+
+            text-align: center;
+        }
+
+
+        .contact p {
+
+            margin: 0 auto;
+        }
+
+
+        .links {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+            margin-top: 35px;
+        }
+
+
+        .link {
+
+            padding: 12px 22px;
+
+            border: 1px solid rgba(255,255,255,0.3);
+
+            border-radius: 30px;
+
+            font-size: 13px;
+
+            transition: all 0.3s ease;
+        }
+
+
+        .link:hover {
+
+            background: white;
+
+            color: black;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            font-size: 12px;
+
+            opacity: 0.5;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 750px) {
+
+            .background {
+
+                background-position: center center;
+                
+            }
+
+            nav {
+
+                padding: 20px;
+            }
+
+
+            .nav-links {
+
+                gap: 12px;
+
+                font-size: 10px;
+            }
+
+
+            .hero {
+
+                padding: 0 25px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 65px;
+
+                letter-spacing: -3px;
+            }
+
+
+            .hero h1 span {
+
+                margin-left: 30px;
+            }
+
+
+            .section {
+
+                margin-left: 15px;
+
+                margin-right: 15px;
+
+                padding: 35px 25px;
+
+                border-radius: 15px;
+            }
+
+
+            .section h2 {
+
+                font-size: 36px;
+            }
+
+
+            .about-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+            }
+
+
+            .about-photo {
+
+                height: 300px;
+            }
+
+
+            .project {
+
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+            }
+
+
+            .project-image {
+
+                height: 250px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         FIXED BACKGROUND
+    ========================================= -->
+
+    <div class="background"></div>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
+    <nav>
+
+        <div class="logo">
+            [Louis LUTZ]
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Engineer in Progress · Robotics · Care Giver
+            </div>
+
+            <h1>
+                Louis
+                <span>LUTZ</span>
+            </h1>
+
+            <div class="hero-description">
+
+                Let's build a future one smile at a time thanks to enterainment and innovation
+
+            </div>
+
+        </div>
+
+
+        <div class="scroll-indicator">
+
+            Scroll to explore
+
+            <span class="scroll-arrow">
+                ↓
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         SCROLLING CONTENT
+    ========================================= -->
+
+    <main class="content">
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="section" id="about">
+
+            <div class="section-number">
+                01 — ABOUT
+            </div>
+
+            <h2>
+                About Me
+            </h2>
+
+
+            <div class="about-grid">
+
+
+                <div>
+
+                    <div class="name-line">
+
+                        Louis LUTZ
+                        ·
+                        Engineer in Progress
+
+                    </div>
+
+
+                    <p>
+
+                        I am a Master degree engineering student at
+                        ECAM LaSalle, specialising in AI at Chang Gung University.
+
+                        I am particularly interested in
+                        the entertainement industry, dance and
+                        videogames.
+
+                        I enjoy working on projects that combine
+                        engineering, technology and creative problem
+                        solving.
+
+                    </p>
+
+
+                    <div class="student-id">
+
+                        Student ID:
+                        M1561035
+
+                    </div>
+
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            Curious
+                        </span>
+
+                        <span class="tag">
+                            Creative
+                        </span>
+
+                        <span class="tag">
+                            Problem Solver
+                        </span>
+
+                        <span class="tag">
+                            Team Player
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-photo">
+
+                    <img
+                        src="profile.jpg"
+                        alt="Photo of Louis LUTZ"
+                    >
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============ EDUCATION ============ -->
+
+        <section class="section" id="education">
+
+            <div class="section-number">
+                02 — EDUCATION & EXPERIENCE
+            </div>
+
+            <h2>
+                My Journey
+            </h2>
+
+
+            <div class="timeline">
+
+
+                <div class="timeline-item">
+
+                    <div class="date">
+                        [2026 – PRESENT]
+                    </div>
+
+                    <h3>
+                        Chang Gung University, Taiwan
+                    </h3>
+
+                    <p>
+                        Master Degree in AI
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="date">
+                        [2021 – Present]
+                    </div>
+
+                    <h3>
+                        ECAM LaSalle, France
+                    </h3>
+
+                    <p>
+                        Engineering Degree in Robotics
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="date">
+                        [2025 – 2026]
+                    </div>
+
+                    <h3>
+                        Bartender
+                    </h3>
+
+                    <p>
+                        Ninkasi Part Dieu, Lyon
+                    </p>
+
+                    <p>
+                        [Gap year experience working as a bartender in Lyon, France. Good hands-on experience on teamwork, and time management skills.]
+                    </p>
+
+                </div>
+
+                <div class="timeline-item">
+
+                    <div class="timeline-date">
+                        [2024]
+                    </div>
+
+                    <h3>
+                        Data Science Internship
+                    </h3>
+
+                    <p>
+                        FranceAir
+                    </p>
+
+                    <p>
+                        Helped with data verification for the company's database and website. Learned about data cleaning and verification methods.
+                    </p>
+
+                </div>
+
+            </div>
+            
+        </section>
+
+
+
+        <!-- ============ PROJECTS ============ -->
+
+        <section class="section" id="projects">
+
+            <div class="section-number">
+                03 — PROJECTS & RESEARCH
+            </div>
+
+            <h2>
+                What I Work On
+            </h2>
+
+
+            <div class="project">
+
+
+                <div class="project-image">
+
+                    <img
+                        src="project.jpg"
+                        alt="Research project"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        [WIP] Thesis on AI usage to diagnosis ADHD
+                    </h3>
+
+
+                    <p>
+                        How one could use AI to diagnose ADHD in children and adults. And how to improve the accuracy of the diagnosis.
+                    </p>
+
+
+                    <p class="contribution">
+
+                        <strong>
+                            My contribution:
+                        </strong>
+                        The paper is still early in its development, but I am currently working on the literature review and the methodology.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            [Technology]
+                        </span>
+
+                        <span class="tag">
+                            [Technology]
+                        </span>
+
+                        <span class="tag">
+                            [Research]
+                        </span>
+
+                        <span class="tag">
+                            [Skill]
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============ CONTACT ============ -->
+
+        <section class="section contact" id="contact">
+
+            <div class="section-number">
+                04 — CONTACT
+            </div>
+
+            <h2>
+                Let's Connect
+            </h2>
+
+
+            <p>
+
+                Interested in my work, research or projects?
+                Feel free to get in touch.
+
+            </p>
+
+
+            <div class="links">
+
+
+                <a
+                    class="link"
+                    href="mailto:M1561035@cgu.edu.tw"
+                >
+                    Email
+                </a>
+
+
+                <a
+                    class="link"
+                    href="https://www.linkedin.com/in/louis-lutz-398351238?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                    target="_blank"
+                >
+                    LinkedIn
+                </a>
+
+
+                <a
+                    class="link"
+                    href="https://github.com/Bi-Bim-Bap"
+                    target="_blank"
+                >
+                    GitHub
+                </a>
+
+
+                <a
+                    class="link"
+                    href="https://www.instagram.com/louis_lutz_?stkn=MWVnZ3dkN2hqeXNzcQ%3D%3D&utm_source=qr"
+                    target="_blank"
+                >
+                    Instagram
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            © 2026 Lutz Louis
+
+        </footer>
+
+
+    </main>
+
+
+</body>
+
+</html>
