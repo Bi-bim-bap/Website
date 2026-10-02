@@ -533,6 +533,8 @@
             max-width: none;
         
             padding: 0;
+
+            margin-bottom: 0;
         
         }
         
@@ -560,7 +562,7 @@
 
             left:0;
 
-            width: 100%
+            width: 100%;
         
             height: 45vh;
         
@@ -632,7 +634,7 @@
         
         .horizontal-timeline {
         
-            display: sticky;
+            display: flex;
         
             align-items: flex-start;
         
@@ -649,7 +651,9 @@
             padding-right: 30vw;
         
             position: relative;
-        
+
+            flex-shrink: 0;
+            
             will-change: max-content;
 
             will-change: transform;
@@ -669,7 +673,7 @@
         
             left: 10vw;
         
-            right: 20vw;
+            right: 0vw;
         
             height: 1px;
         
@@ -851,6 +855,13 @@
                 width: 280px;
         
             }
+
+            .timeline-stage {
+                position: relative;
+                height: auto;
+                overflow: visible;
+            }
+            .horizontal-timeline { width: max-content; }
         
         }
         
@@ -1277,113 +1288,115 @@
         <!-- ============ EDUCATION ============ -->
 
 <section class="timeline-section" id="education">
-
-    <div class="timeline-header">
-
-        <div class="section-number">
-            02 — EDUCATION & EXPERIENCE
+    <div class="timeline-stage">
+        <div class="timeline-header">
+    
+            <div class="section-number">
+                02 — EDUCATION & EXPERIENCE
+            </div>
+    
+            <h2>
+                My Journey
+            </h2>
+    
+            <p>
+                A few places, projects and experiences that shaped me.
+            </p>
+    
         </div>
-
-        <h2>
-            My Journey
-        </h2>
-
-        <p>
-            A few places, projects and experiences that shaped me.
-        </p>
-
-    </div>
-
-
-    <div class="timeline-window">
-
-        <div class="horizontal-timeline">
-
-            <div class="timeline-card">
-
-                <div class="timeline-year">
-                    [2026 – PRESENT]
+    
+    
+        <div class="timeline-window">
+    
+            <div class="horizontal-timeline">
+    
+                <div class="timeline-card">
+    
+                    <div class="timeline-year">
+                        [2026 – PRESENT]
+                    </div>
+    
+                    <div class="timeline-dot"></div>
+    
+                        <h3>
+                            Chang Gung University, Taiwan
+                        </h3>
+    
+                        <p>
+                            Master Degree in AI
+                        </p>
+    
                 </div>
-
-                <div class="timeline-dot"></div>
-
+        
+                <div class="timeline-card">
+        
+                    <div class="timeline-year">
+                            [2021 – Present]
+                    </div>
+        
+                    <div class="timeline-dot"></div>
+    
+                        <h3>
+                                ECAM LaSalle, France
+                        </h3>
+        
+                        <p>
+                                Engineering Degree in Robotics
+                        </p>
+        
+                </div>
+        
+                <div class="timeline-card">
+        
+                    <div class="timeline-year">
+                            [2025 – 2026]
+                    </div>
+        
+                    <div class="timeline-dot"></div>
+        
+                        <h3>
+                                Bartender
+                        </h3>
+        
+                        <p>
+                                Ninkasi Part Dieu, Lyon
+                        </p>
+        
+                        <p>
+                                Gap year experience working as a bartender in Lyon, France. Good hands-on experience on teamwork, and time management skills.
+                        </p>
+                        
+                </div>
+        
+                <div class="timeline-card">
+        
+                    <div class="timeline-year">
+                             [2024]
+                    </div>
+                        
+                    <div class="timeline-dot"></div>
+                        
                     <h3>
-                        Chang Gung University, Taiwan
+                                Data Science Internship
                     </h3>
-
+        
                     <p>
-                        Master Degree in AI
+                                FranceAir
                     </p>
-
-            </div>
-    
-            <div class="timeline-card">
-    
-                <div class="timeline-year">
-                        [2021 – Present]
+        
+                    <p>
+                            Helped with data verification for the company's database and website. Learned about data cleaning and verification methods.
+                    </p>
+        
                 </div>
     
-                <div class="timeline-dot"></div>
-
-                    <h3>
-                            ECAM LaSalle, France
-                    </h3>
-    
-                    <p>
-                            Engineering Degree in Robotics
-                    </p>
     
             </div>
     
-            <div class="timeline-card">
-    
-                <div class="timeline-year">
-                        [2025 – 2026]
-                </div>
-    
-                <div class="timeline-dot"></div>
-    
-                    <h3>
-                            Bartender
-                    </h3>
-    
-                    <p>
-                            Ninkasi Part Dieu, Lyon
-                    </p>
-    
-                    <p>
-                            Gap year experience working as a bartender in Lyon, France. Good hands-on experience on teamwork, and time management skills.
-                    </p>
-                    
-            </div>
-    
-            <div class="timeline-card">
-    
-                <div class="timeline-year">
-                         [2024]
-                </div>
-                    
-                <div class="timeline-dot"></div>
-                    
-                <h3>
-                            Data Science Internship
-                </h3>
-    
-                <p>
-                            FranceAir
-                </p>
-    
-                <p>
-                        Helped with data verification for the company's database and website. Learned about data cleaning and verification methods.
-                </p>
-    
-            </div>
-
-
         </div>
-
+        
     </div>
-
+    
 </section>
 
         <!-- ============ PROJECTS ============ -->
@@ -1588,49 +1601,49 @@
     </script>
 
     <script>
-        
         const timelineSection = document.querySelector(".timeline-section");
-        
         const timeline = document.querySelector(".horizontal-timeline");
-        
-        function moveTimeline() {
-        
-          if (window.innerWidth <= 750) {
-            timeline.style.transform = "none";
-            return;
-          }
-        
-        const sectionTop = timelineSection.offsetTop;
-        
-        const sectionHeight = timelineSection.offsetHeight;
-
-        const windowHeight = window.innerHeight;
-        
-        const animationStart =
-            sectionTop + windowHeight * 0.7;
-        
-        const distance =
-            sectionHeight - windowHeight;
-        
-        let progress =
-            (window.scrollY - animationStart) / distance;
-        
-          progress = Math.max(0, Math.min(1, progress));
-        
-        const maxMove =
-            timeline.scrollWidth -
-            window.innerWidth +
-            window.innerWidth * 0.20;
-        
-        timeline.style.transform =
-            `translateX(-${progress * maxMove}px)`;
-
+    
+        let current = 0;   // smoothed position
+        let target = 0;    // where the scroll says we should be
+    
+        function updateTarget() {
+            if (window.innerWidth <= 750) {
+                target = 0;
+                return;
+            }
+    
+            const rect = timelineSection.getBoundingClientRect();
+            const scrollable = timelineSection.offsetHeight - window.innerHeight;
+    
+            // 0 when the section reaches the top, 1 when it's about to release
+            let progress = -rect.top / scrollable;
+    
+            // finish the movement at 90% so the last card rests briefly
+            // before the Projects section scrolls up
+            progress = Math.max(0, Math.min(1, progress / 0.9));
+    
+            const maxMove = timeline.scrollWidth - window.innerWidth;
+            target = progress * Math.max(0, maxMove);
         }
-        
-        window.addEventListener("scroll", moveTimeline);
-        window.addEventListener("resize", moveTimeline);
-        
-        moveTimeline();
+    
+        function animate() {
+            // easing = smooth, slightly "floaty" movement
+            current += (target - current) * 0.1;
+    
+            if (window.innerWidth <= 750) {
+                timeline.style.transform = "none";
+            } else {
+                timeline.style.transform = `translate3d(${-current}px, 0, 0)`;
+            }
+            requestAnimationFrame(animate);
+        }
+    
+        window.addEventListener("scroll", updateTarget, { passive: true });
+        window.addEventListener("resize", updateTarget);
+    
+        updateTarget();
+        animate();
     </script>
 
 </body>
