@@ -1582,16 +1582,17 @@
           }
         
           const sectionTop = timelineSection.offsetTop;
+            
           const sectionHeight = timelineSection.offsetHeight;
+            
           const viewportHeight = window.innerHeight;
         
-          const scrollStart = sectionTop;
-          const scrollEnd =
-            sectionTop + sectionHeight - viewportHeight;
+          const scrollStart = sectionTop + viewportHeight * 0.5;
+            
+          const distance = sectionHeight - viewportHeight;
         
           let progress =
-            (window.scrollY - scrollStart) /
-            (scrollEnd - scrollStart);
+            (window.scrollY - scrollStart) / distance;
         
           progress = Math.max(0, Math.min(1, progress));
         
@@ -1603,6 +1604,7 @@
         }
         
         window.addEventListener("scroll", moveTimeline);
+        
         window.addEventListener("resize", moveTimeline);
         
         moveTimeline();
