@@ -537,15 +537,30 @@
         }
         
         
+        .timeline-stage {
+            
+          position: sticky;
+            
+          top: 0;
+            
+          height: 100vh;
+            
+          overflow: hidden;
+            
+        }
         /* =========================================
            HEADER
         ========================================= */
         
         .timeline-header {
         
-            position: sticky;
+            position: absolute;
         
             top: 0;
+
+            left:0;
+
+            width: 100%
         
             height: 45vh;
         
@@ -590,10 +605,14 @@
         
         .timeline-window {
         
-            position: sticky;
+            position: absolute;
         
             top: 45vh;
-        
+            
+            left: 0;
+              
+            width: 100%;
+            
             height: 55vh;
         
             display: flex;
@@ -602,7 +621,7 @@
         
             overflow: hidden;
         
-            z-index: 4;
+            z-index: 5;
         
         }
         
@@ -631,6 +650,8 @@
         
             position: relative;
         
+            will-change: max-content;
+
             will-change: transform;
         
         }
@@ -1567,7 +1588,7 @@
     </script>
 
     <script>
-
+        
         const timelineSection =
           document.querySelector(".timeline-section");
         
@@ -1581,20 +1602,20 @@
             return;
           }
         
-          const sectionTop = timelineSection.offsetTop;
-            
-          const sectionHeight = timelineSection.offsetHeight;
-            
-          const viewportHeight = window.innerHeight;
+          const sectionTop =
+            timelineSection.offsetTop;
         
-          const scrollStart = sectionTop + viewportHeight * 0.7;
-            
-          const distance = sectionHeight - viewportHeight;
+          const sectionHeight =
+            timelineSection.offsetHeight;
+        
+          const maxScroll =
+            sectionHeight - window.innerHeight;
         
           let progress =
-            (window.scrollY - scrollStart) / distance;
+            (window.scrollY - sectionTop) / maxScroll;
         
-          progress = Math.max(0, Math.min(1, progress));
+          progress =
+            Math.max(0, Math.min(1, progress));
         
           const maxMove =
             timeline.scrollWidth - window.innerWidth;
@@ -1604,11 +1625,9 @@
         }
         
         window.addEventListener("scroll", moveTimeline);
-        
         window.addEventListener("resize", moveTimeline);
         
         moveTimeline();
-
     </script>
 
 </body>
