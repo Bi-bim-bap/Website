@@ -1559,6 +1559,71 @@
 
     </script>
 
+    <script>
+
+    const timelineSection =
+        document.querySelector(".timeline-section");
+
+    const timeline =
+        document.querySelector(".horizontal-timeline");
+
+
+    function moveTimeline() {
+
+        if (window.innerWidth <= 750) {
+            timeline.style.transform = "none";
+            return;
+        }
+
+
+        const sectionTop =
+            timelineSection.offsetTop;
+
+        const sectionHeight =
+            timelineSection.offsetHeight;
+
+        const scrollPosition =
+            window.scrollY;
+
+        let progress =
+            (scrollPosition - sectionTop)
+            /
+            (sectionHeight - window.innerHeight);
+
+        progress =
+            Math.max(0, Math.min(1, progress));
+
+        const maxMove =
+            timeline.scrollWidth
+            -
+            window.innerWidth;
+
+        const movement =
+            progress * maxMove;
+
+
+        timeline.style.transform =
+            `translateX(-${movement}px)`;
+
+    }
+
+
+        window.addEventListener(
+            "scroll",
+            moveTimeline
+        );
+    
+    
+        window.addEventListener(
+            "resize",
+            moveTimeline
+        );
+    
+    
+        moveTimeline();
+
+    </script>
+
 </body>
 
 </html>
