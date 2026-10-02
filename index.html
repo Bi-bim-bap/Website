@@ -1587,7 +1587,7 @@
             
           const viewportHeight = window.innerHeight;
         
-          const scrollStart = sectionTop + viewportHeight * 0.5;
+          const scrollStart = sectionTop + viewportHeight * 0.7;
             
           const distance = sectionHeight - viewportHeight;
         
@@ -1606,6 +1606,18 @@
         window.addEventListener("scroll", moveTimeline);
         
         window.addEventListener("resize", moveTimeline);
+
+        const header = document.querySelector(".timeline-header");
+
+          if (progress > 0.75) {
+              
+            const fade = 1 - ((progress - 0.75) / 0.25);
+            header.style.opacity = fade;  
+          } 
+          
+          else {
+            header.style.opacity = 1;
+          }
         
         moveTimeline();
 
