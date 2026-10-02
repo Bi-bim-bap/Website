@@ -1589,11 +1589,9 @@
 
     <script>
         
-        const timelineSection =
-          document.querySelector(".timeline-section");
+        const timelineSection = document.querySelector(".timeline-section");
         
-        const timeline =
-          document.querySelector(".horizontal-timeline");
+        const timeline = document.querySelector(".horizontal-timeline");
         
         function moveTimeline() {
         
@@ -1602,26 +1600,31 @@
             return;
           }
         
-          const sectionTop =
-            timelineSection.offsetTop;
+        const sectionTop = timelineSection.offsetTop;
         
-          const sectionHeight =
-            timelineSection.offsetHeight;
+        const sectionHeight = timelineSection.offsetHeight;
+
+        const windowHeight = window.innerHeight;
         
-          const maxScroll =
-            sectionHeight - window.innerHeight;
+        const animationStart =
+            sectionTop + windowHeight * 0.45;
         
-          let progress =
-            (window.scrollY - sectionTop) / maxScroll;
+        const distance =
+            sectionHeight - windowHeight;
         
-          progress =
-            Math.max(0, Math.min(1, progress));
+        let progress =
+            (window.scrollY - animationStart) / distance;
         
-          const maxMove =
-            timeline.scrollWidth - window.innerWidth;
+          progress = Math.max(0, Math.min(1, progress));
         
-          timeline.style.transform =
+        const maxMove =
+            timeline.scrollWidth -
+            window.innerWidth +
+            window.innerWidth * 0.10;
+        
+        timeline.style.transform =
             `translateX(-${progress * maxMove}px)`;
+
         }
         
         window.addEventListener("scroll", moveTimeline);
