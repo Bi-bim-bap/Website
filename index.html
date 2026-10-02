@@ -521,25 +521,46 @@
             margin-bottom: 5px;
         }
         /* =========================================
-            HORIZONTAL TIMELINE
+           HORIZONTAL TIMELINE SECTION
         ========================================= */
 
         .timeline-section {
-
-            height: 250vh;
-
+        
+            height: 300vh;
+        
             position: relative;
-
+        
             max-width: none;
-
+        
             padding: 0;
-
-}
-
-
-        .timeline-header {
-            height: 45vh;
+        
         }
+        
+        
+        /* =========================================
+           HEADER
+        ========================================= */
+        
+        .timeline-header {
+        
+            position: sticky;
+        
+            top: 0;
+        
+            height: 45vh;
+        
+            display: flex;
+        
+            flex-direction: column;
+        
+            justify-content: center;
+        
+            padding: 80px 8% 0;
+        
+            z-index: 5;
+        
+        }
+        
         
         .timeline-header h2 {
         
@@ -575,13 +596,13 @@
         
             height: 55vh;
         
-            margin-top: -100vh;
-        
             display: flex;
         
             align-items: center;
         
             overflow: hidden;
+        
+            z-index: 4;
         
             pointer-events: none;
         
@@ -589,7 +610,7 @@
         
         
         /* =========================================
-           HORIZONTAL LINE
+           HORIZONTAL TIMELINE
         ========================================= */
         
         .horizontal-timeline {
@@ -600,7 +621,13 @@
         
             gap: 120px;
         
-            padding-left: 8vw;
+            /*
+            IMPORTANT:
+            Start far enough inside the screen
+            that the first dot is visible.
+            */
+        
+            padding-left: 10vw;
         
             padding-right: 30vw;
         
@@ -621,14 +648,13 @@
         
             top: 48px;
         
-            left: 8vw;
+            left: 10vw;
         
             right: 20vw;
         
             height: 1px;
         
-            background:
-                rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.35);
         
         }
         
@@ -728,10 +754,10 @@
             line-height: 1.8;
         
             color: rgba(255,255,255,0.65);
-
-}
-
         
+        }
+
+
         /* =========================================
            MOBILE
         ========================================= */
@@ -751,6 +777,8 @@
         
                 position: relative;
         
+                top: auto;
+        
                 height: auto;
         
                 padding: 0 25px 60px;
@@ -762,9 +790,9 @@
         
                 position: relative;
         
-                height: auto;
+                top: auto;
         
-                margin-top: 0;
+                height: auto;
         
                 overflow-x: auto;
         
@@ -806,7 +834,7 @@
             }
         
         }
-
+        
         /* =========================================
            PROJECT
         ========================================= */
