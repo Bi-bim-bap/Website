@@ -1607,7 +1607,7 @@
         const windowHeight = window.innerHeight;
         
         const animationStart =
-            sectionTop + windowHeight * 0.45;
+            sectionTop + windowHeight * 0.7;
         
         const distance =
             sectionHeight - windowHeight;
@@ -1620,7 +1620,7 @@
         const maxMove =
             timeline.scrollWidth -
             window.innerWidth +
-            window.innerWidth * 0.10;
+            window.innerWidth * 0.20;
         
         timeline.style.transform =
             `translateX(-${progress * maxMove}px)`;
