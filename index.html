@@ -996,7 +996,157 @@
 
             transform: translateY(-3px);
         }
-
+        /* =========================================
+           WEBSITE RATING
+        ========================================= */
+        
+        .rating-section {
+            min-height: 70vh;
+        
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        
+            text-align: center;
+        
+            padding: 120px 25px;
+        }
+        
+        
+        /* Small section number */
+        
+        .rating-section .section-number {
+            margin-bottom: 20px;
+        }
+        
+        
+        /* Title */
+        
+        .rating-section h2 {
+            font-family: "Playfair Display", serif;
+        
+            font-size: clamp(45px, 6vw, 80px);
+        
+            font-weight: 500;
+        
+            margin-bottom: 15px;
+        }
+        
+        
+        /* Description */
+        
+        .rating-intro {
+            color: rgba(255,255,255,0.65);
+        
+            margin-bottom: 35px;
+        }
+        
+        
+        /* Stars */
+        
+        .site-rating-stars {
+            display: flex;
+        
+            gap: 8px;
+        
+            margin-bottom: 25px;
+        }
+        
+        
+        .site-rating-stars button {
+            background: none;
+            border: none;
+        
+            color: rgba(255,255,255,0.25);
+        
+            font-size: 45px;
+        
+            cursor: pointer;
+        
+            padding: 5px;
+        
+            transition:
+                transform 0.2s ease,
+                color 0.2s ease;
+        }
+        
+        
+        /* Hover */
+        
+        .site-rating-stars button:hover {
+            color: #ffffff;
+        
+            transform: scale(1.15);
+        }
+        
+        
+        /* Selected stars */
+        
+        .site-rating-stars button.selected {
+            color: #ffffff;
+        }
+        
+        
+        /* Average */
+        
+        .rating-result {
+            font-size: 42px;
+        
+            font-weight: 500;
+        
+            margin-top: 10px;
+        }
+        
+        
+        .rating-out-of {
+            font-size: 20px;
+        
+            color: rgba(255,255,255,0.5);
+        }
+        
+        
+        /* Number of ratings */
+        
+        #ratingCount {
+            margin-top: 5px;
+        
+            color: rgba(255,255,255,0.5);
+        
+            font-size: 14px;
+        }
+        
+        
+        /* Message after voting */
+        
+        #ratingMessage {
+            margin-top: 20px;
+        
+            color: rgba(255,255,255,0.75);
+        
+            font-size: 14px;
+        
+            min-height: 20px;
+        }
+        
+        
+        /* Mobile */
+        
+        @media (max-width: 750px) {
+        
+            .rating-section {
+                padding: 100px 25px;
+            }
+        
+            .site-rating-stars {
+                gap: 2px;
+            }
+        
+            .site-rating-stars button {
+                font-size: 36px;
+            }
+        
+        }
 
         /* =========================================
            FOOTER
@@ -1215,7 +1365,7 @@
         <section class="section" id="about">
 
             <div class="section-number">
-                01 — ABOUT
+                ABOUT
             </div>
 
             <h2>
@@ -1307,7 +1457,7 @@
         <div class="timeline-header">
     
             <div class="section-number">
-                02 — EDUCATION & EXPERIENCE
+                EDUCATION & EXPERIENCE
             </div>
     
             <h2>
@@ -1445,7 +1595,7 @@
         <section class="section" id="projects">
 
             <div class="section-number">
-                03 — PROJECTS & RESEARCH
+                PROJECTS & RESEARCH
             </div>
 
             <h2>
@@ -1522,7 +1672,7 @@
         <section class="section contact" id="contact">
 
             <div class="section-number">
-                04 — CONTACT
+                CONTACT
             </div>
 
             <h2>
@@ -1580,6 +1730,55 @@
 
         </section>
 
+        <section class="rating-section" id="rating">
+
+                <div class="section-number">
+                     Since you've made it this far...
+                </div>
+            
+                <h2>How was your experience?</h2>
+            
+                <p class="rating-intro">
+                    Please leave a rating ^^
+                </p>
+            
+            
+                <!-- STAR RATING -->
+            
+                <div class="site-rating-stars" id="ratingStars">
+            
+                    <button data-rating="1" aria-label="1 star">★</button>
+                    <button data-rating="2" aria-label="2 stars">★</button>
+                    <button data-rating="3" aria-label="3 stars">★</button>
+                    <button data-rating="4" aria-label="4 stars">★</button>
+                    <button data-rating="5" aria-label="5 stars">★</button>
+            
+                </div>
+            
+            
+                <!-- CURRENT RESULT -->
+            
+                <div class="rating-result">
+            
+                    <span id="averageRating">
+                        —
+                    </span>
+            
+                    <span class="rating-out-of">
+                        / 5
+                    </span>
+            
+                </div>
+            
+            
+                <div id="ratingCount">
+                    Loading ratings...
+                </div>
+            
+            
+                <div id="ratingMessage"></div>
+            
+            </section>
 
         <footer>
 
@@ -1686,7 +1885,257 @@
         updateTarget();
         animate();
     </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+        
+    </script>
+    
+    <script>
 
+    // =========================================
+    // SUPABASE CONNECTION
+    // =========================================
+
+    const SUPABASE_URL =
+        "https://xmofjfjjskybdjpkhbhe.supabase.co/rest/v1/";
+
+    const SUPABASE_KEY =
+        "sb_publishable_L-OLZvsRNi94LUBdu_rOZw_UiV03qFW";
+
+
+    const { createClient } = window.supabase;
+
+    const supabaseClient =
+        createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+
+    // =========================================
+    // HTML ELEMENTS
+    // =========================================
+
+    const stars =
+        document.querySelectorAll(
+            "#ratingStars button"
+        );
+
+    const averageRating =
+        document.getElementById(
+            "averageRating"
+        );
+
+    const ratingCount =
+        document.getElementById(
+            "ratingCount"
+        );
+
+    // =========================================
+    // LOAD EXISTING RATINGS
+    // =========================================
+
+    async function loadRatings() {
+
+        const { data, error } =
+            await supabaseClient
+                .from("website_ratings")
+                .select("rating");
+
+        if (error) {
+
+            console.error(error);
+
+            averageRating.textContent = "—";
+
+            ratingCount.textContent =
+                "Ratings unavailable";
+
+            return;
+        }
+
+
+        // No ratings yet
+
+        if (!data || data.length === 0) {
+
+            averageRating.textContent = "—";
+
+            ratingCount.textContent =
+                "Be the first to rate this website!";
+
+            return;
+        }
+
+
+        // Calculate average
+
+        const total =
+            data.reduce(
+                (sum, item) =>
+                    sum + item.rating,
+                0
+            );
+
+        const average =
+            total / data.length;
+
+
+        averageRating.textContent =
+            average.toFixed(1);
+
+        ratingCount.textContent =
+            `${data.length} ${
+                data.length === 1
+                    ? "rating"
+                    : "ratings"
+            }`;
+    }
+
+
+    // =========================================
+    // HIGHLIGHT STARS
+    // =========================================
+
+    function highlightStars(rating) {
+
+        stars.forEach(star => {
+
+            const value =
+                Number(
+                    star.dataset.rating
+                );
+
+            star.classList.toggle(
+                "selected",
+                value <= rating
+            );
+        });
+    }
+
+
+    // =========================================
+    // SUBMIT RATING
+    // =========================================
+
+    async function submitRating(rating) {
+
+        ratingMessage.textContent =
+            "Saving your rating...";
+
+
+        const { error } =
+            await supabaseClient
+                .from("website_ratings")
+                .insert({
+                    rating: rating
+                });
+
+
+        if (error) {
+
+            console.error(error);
+
+            ratingMessage.textContent =
+                "Something went wrong.";
+
+            return;
+        }
+
+
+        // Remember that this browser has voted
+
+        localStorage.setItem(
+            "websiteRated",
+            "true"
+        );
+
+
+        localStorage.setItem(
+            "websiteRating",
+            rating
+        );
+
+
+        ratingMessage.textContent =
+            "Thanks for rating my website ^^ ";
+
+
+        // Refresh displayed average
+
+        loadRatings();
+    }
+
+
+    // =========================================
+    // STAR CLICK
+    // =========================================
+
+    stars.forEach(star => {
+
+        star.addEventListener(
+            "click",
+            async () => {
+
+                // Prevent multiple votes
+                // from the same browser
+
+                if (
+                    localStorage.getItem(
+                        "websiteRated"
+                    )
+                ) {
+
+                    ratingMessage.textContent =
+                        "You've already rated this website.";
+
+                    return;
+                }
+
+
+                const rating =
+                    Number(
+                        star.dataset.rating
+                    );
+
+
+                highlightStars(rating);
+
+                await submitRating(rating);
+            }
+        );
+
+    });
+
+
+    // =========================================
+    // RESTORE USER'S PREVIOUS RATING
+    // =========================================
+
+    const previousRating =
+        localStorage.getItem(
+            "websiteRating"
+        );
+
+
+    if (previousRating) {
+
+        highlightStars(
+            Number(previousRating)
+        );
+
+        ratingMessage.textContent =
+            "Thanks for rating my website!";
+    }
+
+
+    // =========================================
+    // INITIAL LOAD
+    // =========================================
+
+    loadRatings();
+
+    </script>
 </body>
 
 </html>
