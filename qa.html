@@ -2,10 +2,8 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Q&amp;A | Louis LUTZ</title>
 
     <!-- Fonts -->
@@ -14,320 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap"
           rel="stylesheet">
 
-    <style>
-
-        /* =========================================
-           BASIC SETTINGS
-        ========================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "DM Sans", sans-serif;
-            background: #111;
-            color: white;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        a:focus-visible,
-        summary:focus-visible {
-            outline: 2px solid white;
-            outline-offset: 4px;
-        }
-
-
-        /* =========================================
-           FIXED BACKGROUND
-        ========================================= */
-
-        .background {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-            height: 100vh;
-            background-image:
-                linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.65)),
-                url("back1.jpg");
-            background-size: cover;
-            background-position: 75%;
-            z-index: -2;
-        }
-
-        .background::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.15);
-        }
-
-
-        /* =========================================
-           NAVIGATION
-        ========================================= */
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 100;
-            padding: 25px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-links a {
-            transition: opacity 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.5;
-        }
-
-        .nav-links a.active {
-            border-bottom: 1px solid rgba(255,255,255,0.6);
-            padding-bottom: 3px;
-        }
-
-
-        /* =========================================
-           PAGE
-        ========================================= */
-
-        .content {
-            position: relative;
-            z-index: 2;
-            padding: 140px 0 80px;
-        }
-
-        .section {
-            max-width: 1100px;
-            margin: 0 auto 30px;
-            padding: 70px;
-            background: rgba(15, 20, 25, 0.88);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-        }
-
-        .section-number {
-            font-size: 12px;
-            letter-spacing: 3px;
-            opacity: 0.5;
-            margin-bottom: 10px;
-        }
-
-        .section h1 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(40px, 6vw, 60px);
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .intro {
-            color: rgba(255,255,255,0.65);
-            line-height: 1.8;
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-
-
-        /* =========================================
-           Q&A
-        ========================================= */
-
-        .qa-item {
-            border-bottom: 1px solid rgba(255,255,255,0.15);
-        }
-
-        .qa-item:first-of-type {
-            border-top: 1px solid rgba(255,255,255,0.15);
-        }
-
-        .qa-item summary {
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: 500;
-            padding: 22px 40px 22px 0;
-            list-style: none;
-            position: relative;
-            transition: opacity 0.3s ease;
-        }
-
-        .qa-item summary:hover {
-            opacity: 0.7;
-        }
-
-        /* Hide default arrow */
-        .qa-item summary::-webkit-details-marker {
-            display: none;
-        }
-
-        /* Plus / minus icon */
-        .qa-item summary::after {
-            content: "+";
-            position: absolute;
-            right: 5px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 24px;
-            font-weight: 400;
-            opacity: 0.6;
-        }
-
-        .qa-item[open] summary::after {
-            content: "–";
-        }
-
-        .qa-item p {
-            color: rgba(255,255,255,0.75);
-            line-height: 1.8;
-            max-width: 700px;
-            padding-bottom: 25px;
-        }
-
-        /* Answer fades in when opened */
-        .qa-item[open] p {
-            animation: reveal 0.35s ease;
-        }
-
-        @keyframes reveal {
-            from { opacity: 0; transform: translateY(-6px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-
-        /* =========================================
-           BACK LINK
-        ========================================= */
-
-        .back {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .link {
-            display: inline-block;
-            padding: 12px 22px;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 30px;
-            font-size: 13px;
-            transition: all 0.3s ease;
-        }
-
-        .link:hover {
-            background: white;
-            color: black;
-            transform: translateY(-3px);
-        }
-
-
-        /* =========================================
-           FOOTER
-        ========================================= */
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 12px;
-            opacity: 0.5;
-        }
-
-
-        /* =========================================
-           LAPTOP
-        ========================================= */
-
-        @media (min-width: 1200px) {
-            .background {
-                background-position: center 25%;
-            }
-        }
-
-
-        /* =========================================
-           MOBILE
-        ========================================= */
-
-        @media (max-width: 750px) {
-
-            .background {
-                background-position: center center;
-            }
-
-            nav {
-                padding: 20px;
-            }
-
-            .nav-links {
-                gap: 12px;
-                font-size: 10px;
-            }
-
-            .content {
-                padding-top: 110px;
-            }
-
-            .section {
-                margin-left: 15px;
-                margin-right: 15px;
-                padding: 35px 25px;
-                border-radius: 15px;
-            }
-
-            .qa-item summary {
-                font-size: 16px;
-            }
-        }
-
-
-        /* =========================================
-           REDUCED MOTION
-        ========================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-            .qa-item[open] p {
-                animation: none;
-            }
-        }
-
-    </style>
-    
-    <link rel="icon" type="image/png" href="favicon.png">
-    
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
@@ -335,13 +20,8 @@
 
     <div class="background"></div>
 
-
-    <!-- NAVIGATION -->
-
     <nav>
-
         <a href="index.html" class="logo">Louis LUTZ</a>
-
         <ul class="nav-links">
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#education">Education</a></li>
@@ -349,24 +29,16 @@
             <li><a href="index.html#contact">Contact</a></li>
             <li><a href="qa.html" class="active">Q&amp;A</a></li>
         </ul>
-
     </nav>
+    <div class="lang-switch" role="group" aria-label="Language"><a href="qa.html" hreflang="en" lang="en" title="English" aria-current="true">EN</a><a href="qa-fr.html" hreflang="fr" lang="fr" title="Français">FR</a><a href="qa-zh.html" hreflang="zh-Hant" lang="zh-Hant" title="繁體中文">中文</a></div>
 
-
-    <!-- CONTENT -->
-
-    <main class="content">
+    <main class="content content-page">
 
         <section class="section">
 
             <div class="section-number">Q&amp;A</div>
-
             <h1>Questions &amp; Answers</h1>
-
-            <p class="intro">
-                Things people often ask me. Click a question to read the answer.
-            </p>
-
+            <p class="intro">Things people often ask me. Click a question to read the answer.</p>
 
             <!-- ========================================
                  EDIT YOUR QUESTIONS BELOW
@@ -375,114 +47,36 @@
 
             <details class="qa-item">
                 <summary>Why did you choose robotics?</summary>
-                <p>
-                    I was a part of the FIRST LEGO League championship when I was younger and loved it, so I decided to continue on this path
-                </p>
+                <p>Replace this with your own answer.</p>
             </details>
 
             <details class="qa-item">
                 <summary>What's it like studying in Taiwan?</summary>
-                <p>
-                    I'm still getting used to it, but it's refreshing.
-                </p>
+                <p>Replace this with your own answer.</p>
             </details>
 
             <details class="qa-item">
                 <summary>Why AI and ADHD for your thesis?</summary>
-                <p>
-                    I recently (and finally) got diagnosed with ADHD, since I struggled a lot to obtain this diagnosis I want to help other access one more freely ^^
-                </p>
+                <p>Replace this with your own answer.</p>
             </details>
 
             <details class="qa-item">
                 <summary>What do you do outside of engineering?</summary>
-                <p>
-                    I'm a Cheerleader but I also play alot of videogames!
-                </p>
+                <p>Replace this with your own answer.</p>
             </details>
 
             <details class="qa-item">
                 <summary>What would you like to work on next?</summary>
-                <p>
-                    First I wanna finish this paper and get my degree! I'm really open to discuss collaborations since I love new projects
-                </p>
+                <p>Replace this with your own answer.</p>
             </details>
 
-            <details class="qa-item">
-                <summary>How would other people describe you?</summary>
-                <p>
-                    That really depends on who you ask! but here's a few : 
-                </p>
-
-                <p>
-                    Genuine, Generous, Smart, Sarcastic, Funny, Protective (My Unbiased Sister)
-                </p> 
-                
-                <p>
-                    Kind, Dreamy, Empathetic, Observant, Analytical (My unbiased Friend)
-                </p> 
-                
-                <p>
-                    Louis is a young Frenchman who is interested in everything.
-
-Diligent and thoughtful, he has a rational mind and is always eager to learn and explore things in depth and with seriousness. Whatever he studies, he strives for excellence.
-
-A little hyperactive, he is always ready to help, get involved in community and student activities, and dedicate his time and skills to others.
-
-An active sportsman, he particularly enjoys team sports. He practices cheerleading and became French champion in the discipline with his ECAM Lyon team.
-
-His interests are numerous: he enjoys everything from patience-testing activities to attending music festivals all night long. He is a fan of LEGO, fashion, mixology, and meeting as many people as possible.
-
-In three words: diligent, thoughtful, and very busy. (My N°1 Fan)
-
-                </p>
-            </details>
-
-            <details class="qa-item">
-                <summary>What's your Hogwart House?</summary>
-                <p>
-                    Slytherin.
-                </p>    
-            </details>
-
-            <details class="qa-item">
-                <summary>What's your favoutite music?</summary>
-                <p>
-                    Right now it's gonna be the soundtrack of E33, but I really love Nujabes too!
-                </p>    
-                <a class="link" href="https://youtu.be/638TbzmRL8A?si=jgzIuY7cnNitFVxk"target="_blank" rel="noopener noreferrer">Quick listen of my favourite track from E33</a>
-                <a class="link" href="https://youtu.be/Fwv2gnCFDOc?si=qZojQjPAD0RLyztg"target="_blank" rel="noopener noreferrer">Quick listen of my favourite track by Nujabes</a>
-            </details>
-
-            <details class="qa-item">
-                <summary>Do you have a favourite book?</summary>
-                <p>
-                    I have multiple actually, The first is "L'Etranger" written by Albert Camus. If you want other
-                    recommendation try" A little life" by Hanya Yanagihara, 
-                    or even "Kafka on the shore" by Haruki Murakami
-                </p>    
-            </details>
-
-            <details class="qa-item">
-                <summary>And your favourite movie?</summary>
-                <p>
-                    I love the mood of Call Me By Your Name, and I could watch it again and again.
-                </p>    
-            </details>
-
-            
             <div class="back">
                 <a class="link" href="index.html">Back to the main page</a>
             </div>
 
-            <p>
-                If you have any other questions feel free to asks them to me directly or by using the contacts I provided <3
-            </p>
         </section>
 
-        <footer>
-            © 2026 Lutz Louis
-        </footer>
+        <footer>© 2026 Lutz Louis</footer>
 
     </main>
 
