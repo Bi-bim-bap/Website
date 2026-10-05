@@ -41,32 +41,48 @@
             <h1>問與答</h1>
             <p class="intro">大家常問我的問題。點選問題即可查看回答。</p>
 
-            <details class="qa-item">
+            <!-- CHAT BOX: searches the questions listed below -->
+            <div class="chat" id="qaChat" data-closest="最接近的問題：" data-nomatch="這個問題我還沒有答案。你可以換個說法、從下方的問題中挑選，也歡迎寄信給我。">
+                <div class="chat-title">問我任何問題</div>
+                <p class="chat-hint">輸入問題，我會在下方的問答中找出最合適的答案。</p>
+                <div class="chat-log" id="chatLog" aria-live="polite"></div>
+                <form class="chat-form" id="chatForm">
+                    <input id="chatInput" type="text" maxlength="200" placeholder="輸入你的問題…" aria-label="問我任何問題" autocomplete="off">
+                    <button class="link" type="submit">詢問</button>
+                </form>
+            </div>
+
+            <!-- ========================================
+                 YOUR QUESTIONS (the chat reads these)
+                 Optional: data-keywords="extra words" helps a question get found.
+            ======================================== -->
+
+            <details class="qa-item" data-keywords="機器人 樂高 LEGO 為什麼 選擇 工程 科系">
                 <summary>你為什麼選擇機器人學？</summary>
                 <p>我小時候參加過 FIRST LEGO League 錦標賽，非常喜歡，所以決定繼續走這條路。</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="台灣 大學 留學 生活 長庚 學生 國外">
                 <summary>在台灣讀書是什麼感覺？</summary>
                 <p>我還在適應中，不過感覺耳目一新。</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="論文 研究 人工智慧 AI ADHD 診斷 注意力不足過動症">
                 <summary>為什麼論文選擇人工智慧與 ADHD？</summary>
                 <p>我最近（終於）被診斷出 ADHD。因為取得診斷的過程非常辛苦，所以我希望能幫助其他人更自由、更容易地獲得診斷 ^^</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="興趣 嗜好 休閒 空閒 啦啦隊 遊戲 電玩 運動">
                 <summary>工程之外你喜歡做什麼？</summary>
                 <p>我是啦啦隊員，但我也玩很多電玩遊戲！</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="未來 計畫 目標 學位 合作 專案 下一步">
                 <summary>接下來你想做什麼？</summary>
                 <p>首先，我想完成這篇論文並拿到學位！我也很樂意討論合作，因為我熱愛新專案。</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="個性 個人特質 朋友 家人 形容 描述 性格">
                 <summary>別人會怎麼形容你？</summary>
                 <p>這真的要看你問誰！不過這裡有幾個答案：</p>
                 <p>真誠、慷慨、聰明、愛諷刺、風趣、保護欲強（我完全公正的姐姐／妹妹）</p>
@@ -74,12 +90,12 @@
                 <p>Louis 是一位對一切都充滿興趣的年輕法國人。他勤奮而思慮周全，頭腦理性，總是渴望認真且深入地學習與探索。無論學什麼，他都力求卓越。他有一點過動，總是樂於幫忙，積極參與社群與學生活動，並把時間與技能奉獻給他人。他熱愛運動，尤其喜歡團體運動。他練習啦啦隊，並與 ECAM Lyon 的隊伍一起拿下了法國冠軍。他的興趣廣泛：從考驗耐心的活動，到徹夜參加音樂節，他都樂在其中。他是 LEGO、時尚與調酒的愛好者，也喜歡認識盡可能多的人。用三個詞形容：勤奮、體貼，而且非常忙碌。（我的頭號粉絲）</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="哈利波特 學院 霍格華茲 史萊哲林 葛來分多 赫夫帕夫 雷文克勞">
                 <summary>你是哪個霍格華茲學院的？</summary>
                 <p>史萊哲林。</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="歌 歌曲 音樂 聽 原聲帶 樂團 歌手 Nujabes E33">
                 <summary>你最喜歡的音樂是什麼？</summary>
                 <p>目前應該是 E33 的原聲帶，不過我也超愛 Nujabes！</p>
                 <div class="qa-links">
@@ -88,12 +104,12 @@
                 </div>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="書 書籍 閱讀 小說 作者 推薦 卡繆 村上春樹">
                 <summary>你有最喜歡的書嗎？</summary>
                 <p>其實我有好幾本。第一本是卡繆的《異鄉人》。如果你想要其他推薦，可以試試柳原漢雅的《渺小一生》，或是村上春樹的《海邊的卡夫卡》。</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="電影 影片 電影院 看 愛情">
                 <summary>你最喜歡的電影是什麼？</summary>
                 <p>我會說《以你的名字呼喚我》（Call Me by Your Name）。我超愛這部電影的氛圍，可以一直重複看。</p>
             </details>
@@ -107,6 +123,8 @@
         <footer>© 2026 Lutz Louis</footer>
 
     </main>
+
+    <script src="chat.js"></script>
 
 </body>
 

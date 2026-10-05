@@ -773,3 +773,105 @@ footer {
     .scroll-arrow { animation: none; }
     .qa-item[open] p { animation: none; }
 }
+
+
+/* =========================================
+   Q&A CHAT BOX
+========================================= */
+
+.chat {
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 40px;
+    background: rgba(255,255,255,0.03);
+}
+
+.chat-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.section .chat-hint {
+    color: rgba(255,255,255,0.55);
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.chat-log {
+    max-height: 340px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.chat-log:empty { display: none; }
+
+.msg {
+    padding: 10px 16px;
+    border-radius: 14px;
+    max-width: 85%;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.msg.user {
+    align-self: flex-end;
+    background: white;
+    color: black;
+}
+
+.msg.bot {
+    align-self: flex-start;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.msg.bot p { font-size: 14px; }
+
+.msg .closest {
+    display: block;
+    font-size: 12px;
+    opacity: 0.55;
+    margin-bottom: 6px;
+}
+
+.msg.bot .qa-links { margin-top: 10px; }
+
+.chat-form {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 18px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: white;
+    font: inherit;
+    font-size: 14px;
+}
+
+.chat-form input::placeholder { color: rgba(255,255,255,0.4); }
+
+.chat-form button.link {
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.chat-form button.link:hover {
+    background: white;
+    color: black;
+}
+
+@media (max-width: 750px) {
+    .chat { padding: 20px 16px; }
+    .msg { max-width: 94%; }
+}

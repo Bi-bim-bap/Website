@@ -41,55 +41,61 @@
             <h1>Questions &amp; réponses</h1>
             <p class="intro">Les questions qu'on me pose souvent. Cliquez sur une question pour lire la réponse.</p>
 
-            <details class="qa-item">
+            <!-- CHAT BOX: searches the questions listed below -->
+            <div class="chat" id="qaChat" data-closest="Question la plus proche :" data-nomatch="Je n'ai pas encore de réponse à ça. Essayez de reformuler, choisissez l'une des questions ci-dessous, ou envoyez-moi un e-mail.">
+                <div class="chat-title">Posez-moi une question</div>
+                <p class="chat-hint">Écrivez une question et je cherche la meilleure réponse dans la liste ci-dessous.</p>
+                <div class="chat-log" id="chatLog" aria-live="polite"></div>
+                <form class="chat-form" id="chatForm">
+                    <input id="chatInput" type="text" maxlength="200" placeholder="Écrivez votre question…" aria-label="Posez-moi une question" autocomplete="off">
+                    <button class="link" type="submit">Demander</button>
+                </form>
+            </div>
+
+            <!-- ========================================
+                 YOUR QUESTIONS (the chat reads these)
+                 Optional: data-keywords="extra words" helps a question get found.
+            ======================================== -->
+
+            <details class="qa-item" data-keywords="robot robotique lego fll carrière études ingénieur pourquoi choisi">
                 <summary>Pourquoi avoir choisi la robotique ?</summary>
                 <p>J'ai participé au championnat FIRST LEGO League quand j'étais plus jeune et j'ai adoré, alors j'ai décidé de continuer dans cette voie.</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="taiwan taïwan études université vie étranger chang gung étudiant">
                 <summary>Comment est la vie d'étudiant à Taïwan ?</summary>
                 <p>Je m'habitue encore, mais c'est rafraîchissant.</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="mémoire thèse recherche ia intelligence artificielle tdah diagnostic">
                 <summary>Pourquoi l'IA et le TDAH pour votre mémoire ?</summary>
                 <p>J'ai récemment (et enfin) été diagnostiqué TDAH. Comme j'ai eu beaucoup de mal à obtenir ce diagnostic, je veux aider d'autres personnes à y accéder plus librement ^^</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="loisir loisirs passe-temps temps libre cheerleading cheerleader pom-pom sport jeux vidéo gaming">
                 <summary>Que faites-vous en dehors de l'ingénierie ?</summary>
                 <p>Je suis cheerleader, mais je joue aussi beaucoup aux jeux vidéo !</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="futur projets projet objectifs diplôme collaboration collaborer travailler ensemble">
                 <summary>Sur quoi aimeriez-vous travailler ensuite ?</summary>
                 <p>D'abord, je veux terminer ce mémoire et obtenir mon diplôme ! Je suis très ouvert aux collaborations, car j'adore les nouveaux projets.</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="personnalité caractère qualités défauts amis famille décrire description">
                 <summary>Comment les autres vous décriraient-ils ?</summary>
                 <p>Ça dépend vraiment de qui vous demandez ! Mais en voici quelques-uns :</p>
                 <p>Sincère, généreux, intelligent, sarcastique, drôle, protecteur (Ma sœur, totalement impartiale)</p>
-                <p>Gentil, rêveur, empathique, observateur, analytique (Mon amie, totalement impartial)</p>
-                <p>
-Louis est un jeune homme français qui s’intéresse à tout. 
-Assidu et attentionné, c’est un esprit rationnel qui cherche à apprendre et à tout approfondir avec sérieux. Dans tout ce qu’il étudie il veut atteindre l’excellence. 
-
-Un peu hyperactif, il est toujours prêt à aider et à s’impliquer dans le monde associatif et à donner de son temps et de ses compétences aux autres. 
-
-Sportif, il aime les sports d’équipe. Il pratique le cheerleding et à été champion de France de cette discipline avec son équipe de l’ECAM Lyon. 
-
-Ses loisirs sont nombreux : il aime autant les exercices de patience que participer à des festivals de musique tout le long de la nuit. Amateur de Lego, de mode, de mixologie et de rencontre avec le plus de personnes possibles. 
-
-En trois mots, assidu, attentionné et très occupé. (Mon Fan N°1)</p>
+                <p>Gentil, rêveur, empathique, observateur, analytique (Mon amie, totalement impartiale)</p>
+                <p>Louis est un jeune homme français qui s’intéresse à tout. Assidu et attentionné, c’est un esprit rationnel qui cherche à apprendre et à tout approfondir avec sérieux. Dans tout ce qu’il étudie il veut atteindre l’excellence. Un peu hyperactif, il est toujours prêt à aider et à s’impliquer dans le monde associatif et à donner de son temps et de ses compétences aux autres. Sportif, il aime les sports d’équipe. Il pratique le cheerleading et a été champion de France de cette discipline avec son équipe de l’ECAM Lyon. Ses loisirs sont nombreux : il aime autant les exercices de patience que participer à des festivals de musique tout le long de la nuit. Amateur de Lego, de mode, de mixologie et de rencontre avec le plus de personnes possibles. En trois mots : assidu, attentionné et très occupé. (Mon fan n°1)</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="harry potter maison serpentard gryffondor poufsouffle serdaigle poudlard">
                 <summary>Quelle est votre maison à Poudlard ?</summary>
                 <p>Serpentard.</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="chanson chansons morceau écouter groupe artiste playlist bande originale nujabes e33">
                 <summary>Quelle est votre musique préférée ?</summary>
                 <p>En ce moment, ce sera la bande originale d'E33, mais j'adore aussi Nujabes !</p>
                 <div class="qa-links">
@@ -98,14 +104,16 @@ En trois mots, assidu, attentionné et très occupé. (Mon Fan N°1)</p>
                 </div>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="livre livres lire lecture roman auteur recommandation camus murakami">
                 <summary>Avez-vous un livre préféré ?</summary>
                 <p>J'en ai plusieurs, en fait. Le premier est « L'Étranger » d'Albert Camus. Si vous voulez d'autres recommandations, essayez « Une vie comme les autres » de Hanya Yanagihara, ou encore « Kafka sur le rivage » de Haruki Murakami.</p>
             </details>
-            <details class="qa-item">
+
+            <details class="qa-item" data-keywords="film films cinéma regarder séries romance">
                 <summary>Et votre film préféré ?</summary>
-                <p> Je dirais "Call me by your name" j'adore l'ambience du film et je pourrais le regarder en boucle</p>
+                <p>Je dirais « Call Me by Your Name », j'adore l'ambiance du film et je pourrais le regarder en boucle.</p>
             </details>
+
             <div class="back">
                 <a class="link" href="index-fr.html">Retour à la page principale</a>
             </div>
@@ -115,6 +123,8 @@ En trois mots, assidu, attentionné et très occupé. (Mon Fan N°1)</p>
         <footer>© 2026 Lutz Louis</footer>
 
     </main>
+
+    <script src="chat.js"></script>
 
 </body>
 

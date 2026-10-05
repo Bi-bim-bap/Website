@@ -41,32 +41,48 @@
             <h1>Questions &amp; Answers</h1>
             <p class="intro">Things people often ask me. Click a question to read the answer.</p>
 
-            <details class="qa-item">
+            <!-- CHAT BOX: searches the questions listed below -->
+            <div class="chat" id="qaChat" data-closest="Closest question:" data-nomatch="I don't have an answer for that yet. Try rephrasing, pick one of the questions below, or send me an email.">
+                <div class="chat-title">Ask me something</div>
+                <p class="chat-hint">Type a question and I'll look for the best answer in the list below.</p>
+                <div class="chat-log" id="chatLog" aria-live="polite"></div>
+                <form class="chat-form" id="chatForm">
+                    <input id="chatInput" type="text" maxlength="200" placeholder="Type your question…" aria-label="Ask me something" autocomplete="off">
+                    <button class="link" type="submit">Ask</button>
+                </form>
+            </div>
+
+            <!-- ========================================
+                 YOUR QUESTIONS (the chat reads these)
+                 Optional: data-keywords="extra words" helps a question get found.
+            ======================================== -->
+
+            <details class="qa-item" data-keywords="robot lego fll first league career why choose study engineering">
                 <summary>Why did you choose robotics?</summary>
                 <p>I was part of the FIRST LEGO League championship when I was younger and loved it, so I decided to continue on this path.</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="taiwan study university life abroad chang gung student cgu">
                 <summary>What's it like studying in Taiwan?</summary>
                 <p>I'm still getting used to it, but it's refreshing.</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="thesis paper research ai adhd diagnosis artificial intelligence neurodivergent">
                 <summary>Why AI and ADHD for your thesis?</summary>
                 <p>I recently (and finally) got diagnosed with ADHD. Since I struggled a lot to obtain this diagnosis, I want to help others access one more freely ^^</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="hobby hobbies free time leisure cheerleading cheerleader games gaming videogames sport">
                 <summary>What do you do outside of engineering?</summary>
                 <p>I'm a cheerleader, but I also play a lot of videogames!</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="future plans goals degree collaboration collaborate project work together">
                 <summary>What would you like to work on next?</summary>
                 <p>First I want to finish this paper and get my degree! I'm really open to discussing collaborations since I love new projects.</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="personality character friends family trait adjectives describe description">
                 <summary>How would other people describe you?</summary>
                 <p>That really depends on who you ask! But here are a few:</p>
                 <p>Genuine, Generous, Smart, Sarcastic, Funny, Protective (My Unbiased Sister)</p>
@@ -74,12 +90,12 @@
                 <p>Louis is a young Frenchman who is interested in everything. Diligent and thoughtful, he has a rational mind and is always eager to learn and explore things in depth and with seriousness. Whatever he studies, he strives for excellence. A little hyperactive, he is always ready to help, get involved in community and student activities, and dedicate his time and skills to others. An active sportsman, he particularly enjoys team sports. He practices cheerleading and became French champion in the discipline with his ECAM Lyon team. His interests are numerous: he enjoys everything from patience-testing activities to attending music festivals all night long. He is a fan of LEGO, fashion, mixology, and meeting as many people as possible. In three words: diligent, thoughtful, and very busy. (My N°1 Fan)</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="harry potter house slytherin gryffindor hufflepuff ravenclaw">
                 <summary>What's your Hogwarts House?</summary>
                 <p>Slytherin.</p>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="song songs soundtrack listen band artist playlist nujabes e33 clair obscur">
                 <summary>What's your favourite music?</summary>
                 <p>Right now it's going to be the soundtrack of E33, but I really love Nujabes too!</p>
                 <div class="qa-links">
@@ -88,14 +104,14 @@
                 </div>
             </details>
 
-            <details class="qa-item">
+            <details class="qa-item" data-keywords="books read reading novel author recommend camus murakami">
                 <summary>Do you have a favourite book?</summary>
                 <p>I have multiple, actually. The first is “L’Étranger” by Albert Camus. If you want other recommendations, try “A Little Life” by Hanya Yanagihara, or even “Kafka on the Shore” by Haruki Murakami.</p>
             </details>
 
-            <details class="qa-item">
-                <summary>And what's ypur favourite movie??</summary>
-                <p>I will say it's "Call me by your name", I love the mood it sets and I could watch it again and again</p>
+            <details class="qa-item" data-keywords="film films movie movies cinema watch watching romance">
+                <summary>And what's your favourite movie?</summary>
+                <p>I will say it's “Call Me by Your Name”. I love the mood it sets and I could watch it again and again.</p>
             </details>
 
             <div class="back">
@@ -107,6 +123,8 @@
         <footer>© 2026 Lutz Louis</footer>
 
     </main>
+
+    <script src="chat.js"></script>
 
 </body>
 
