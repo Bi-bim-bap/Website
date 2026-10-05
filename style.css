@@ -617,7 +617,17 @@ a.tag { cursor: pointer; }
     color: rgba(255,255,255,0.75);
     line-height: 1.8;
     max-width: 700px;
-    padding-bottom: 25px;
+    padding-bottom: 15px;
+}
+
+/* Last element of an answer gets a bit more room */
+.qa-item > :last-child { padding-bottom: 25px; }
+
+/* Row of link buttons inside an answer */
+.qa-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .qa-item[open] p { animation: reveal 0.35s ease; }
