@@ -14,11 +14,12 @@
     // ---------- Matching logic (pure functions) ----------
 
     // Very common words that should never decide a match (English and French)
-    const STOP = new Set((
-        "the is are was were you your yours what how why who when where which do does did to of an and in on " +
+   const STOP = new Set((
+        "the is are was were you your yours what how why when where which do does did to of an and in on " +
         "for with about me my can tell would any there this that have has it its be like name " +
-        "le la les de du des un une est et en que qui quel quelle quels quelles vous votre vos pour par sur " +
-        "avec dans je ma mon tu ton avez faites quoi ce cet cette au aux ne pas comment pourquoi nom"
+        "le la les de du des un une est et en que quel quelle quels quelles vous votre vos pour par sur " +
+        "avec dans je ma mon tu ton avez faites quoi ce cet cette au aux ne pas comment pourquoi nom " +
+        "sont ses son sa mes leur leurs mais ou ai suis"
     ).split(" "));
 
     // Common Chinese question words and particles, removed before matching
@@ -89,7 +90,7 @@
                 if (d.q.has(t)) score += weight * 2;       // match in question counts double
                 else if (d.a.has(t)) score += weight;
             });
-            if (score > bestScore) { bestScore = score; best = i; }
+           if (score > 0 && score >= bestScore) { bestScore = score; best = i; }
         });
 
         return bestScore >= 1.5 ? best : -1;
